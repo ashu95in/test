@@ -128,5 +128,16 @@
   }
 
   </script>
+  <script>
+    function updateThemeColor() {
+      const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const themeColor = darkMode ? "#121212" : "#6200ea"; // Dark or Light color
+      document.querySelector("meta[name='theme-color']").setAttribute("content", themeColor);
+    }
+  
+    // Run on load & on theme change
+    updateThemeColor();
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateThemeColor);
+  </script>
 </body>
 </html>
